@@ -1,6 +1,10 @@
 #home {
   background-color: #8b09b2;
-  display: grid;
+  background-image: radial-gradient(
+    circle farthest-side at 75% 75%,
+    #e43070,
+    #8b09b2
+  );
   grid-template-columns: repeat(2, 1fr);
 
   .pitch {
@@ -18,7 +22,6 @@
       border-color: white;
       border-style: solid;
       border-top-width: 0.1rem;
-      font-weight: bold;
       margin-top: 2rem;
       padding: 2rem 0;
     }

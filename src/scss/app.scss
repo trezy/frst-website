@@ -18,7 +18,11 @@
 
 @import './core/root';
 
+@import './core/article';
+@import './core/headings';
 @import './core/img';
+@import './core/section';
+@import './core/strong';
 
 
 
@@ -27,6 +31,7 @@
 // Components
 
 @import './components/banner';
+@import './components/block-image';
 
 
 
@@ -35,3 +40,4 @@
 // Sections
 
 @import './sections/home';
+@import './sections/section2';
