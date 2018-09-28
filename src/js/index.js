@@ -49,6 +49,6 @@ document.addEventListener('scroll', () => {
       }
     }
 
-
+    window.frst.allSectionsHaveBeenAnimated = Object.values(window.frst.sections).every(({ animationComplete }) => animationComplete)
   }
 })
