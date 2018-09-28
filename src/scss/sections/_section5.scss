@@ -30,6 +30,23 @@
     grid-template-columns: 12.8rem auto;
     grid-template-rows: repeat(2, max-content);
 
+    > * {
+      opacity: 0;
+      transform: translateX(-100%);
+      transition-duration: 0.5s;
+      transition-property: opacity, transform;
+
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          transition-delay: unquote('0.#{$i}s');
+        }
+      }
+    }
+
+    &:nth-of-type(even) > * {
+      transform: translateX(100%);
+    }
+
     img {
       grid-area: image;
     }
@@ -42,6 +59,13 @@
       grid-area: body;
       font-size: 1.2em;
       text-align: justify;
+    }
+  }
+
+  &[data-visible=true] {
+    li > * {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 }

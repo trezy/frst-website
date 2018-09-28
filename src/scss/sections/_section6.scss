@@ -30,6 +30,23 @@
     grid-template-columns: 10rem auto;
     grid-template-rows: max-content 1fr;
 
+    > * {
+      opacity: 0;
+      transform: translateX(-100%);
+      transition-duration: 0.5s;
+      transition-property: opacity, transform;
+
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          transition-delay: unquote('0.#{$i}s');
+        }
+      }
+    }
+
+    &:nth-of-type(even) > * {
+      transform: translateX(100%);
+    }
+
     img {
       grid-area: image;
     }
@@ -41,6 +58,13 @@
 
     p {
       grid-area: body;
+    }
+  }
+
+  &[data-visible=true] {
+    li > * {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 }

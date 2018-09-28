@@ -2,26 +2,6 @@
   <head>
     <link href="/css/lib.css" rel="stylesheet" />
     <link href="/css/app.css" rel="stylesheet" />
-
-    <script>
-      window.frst = {
-        bannerIsTransparent: true,
-      }
-
-      document.addEventListener('scroll', () => {
-        const { scrollY } = window
-        const { bannerIsTransparent } = window.frst
-        const banner = document.querySelector('[role=banner]')
-
-        if ((scrollY === 0) && !bannerIsTransparent) {
-          window.frst.bannerIsTransparent = true
-          banner.classList.add('transparent')
-        } else if (bannerIsTransparent) {
-          window.frst.bannerIsTransparent = false
-          banner.classList.remove('transparent')
-        }
-      })
-    </script>
   </head>
 
   <body>
@@ -230,5 +210,7 @@
         </ul>
       </section>
     </main>
+
+    <script src="/js/index.js"></script>
   </body>
 </html>

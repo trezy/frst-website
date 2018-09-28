@@ -16,9 +16,38 @@
   article {
     margin-right: 10rem;
     order: 2;
+
+    > * {
+      opacity: 0;
+      transform: translateX(100%);
+      transition-duration: 0.5s;
+      transition-property: opacity, transform;
+
+      &:nth-child(1) {
+        transition-delay: 0.2s;
+      }
+
+      &:nth-child(2) {
+        transition-delay: 0.1s;
+      }
+    }
   }
 
   .block-image {
+    opacity: 0;
     order: 1;
+    transition-duration: 0.5s;
+    transition-property: opacity;
+  }
+
+  &[data-visible=true] {
+    article > * {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .block-image {
+      opacity: 1;
+    }
   }
 }
