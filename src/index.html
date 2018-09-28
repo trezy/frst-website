@@ -2,10 +2,32 @@
   <head>
     <link href="/css/lib.css" rel="stylesheet" />
     <link href="/css/app.css" rel="stylesheet" />
+
+    <script>
+      window.frst = {
+        bannerIsTransparent: true,
+      }
+
+      document.addEventListener('scroll', () => {
+        const { scrollY } = window
+        const { bannerIsTransparent } = window.frst
+        const banner = document.querySelector('[role=banner]')
+
+        if ((scrollY === 0) && !bannerIsTransparent) {
+          window.frst.bannerIsTransparent = true
+          banner.classList.add('transparent')
+        } else if (bannerIsTransparent) {
+          window.frst.bannerIsTransparent = false
+          banner.classList.remove('transparent')
+        }
+      })
+    </script>
   </head>
 
   <body>
-    <nav role="banner">
+    <nav
+      class="transparent"
+      role="banner">
       <ul>
         <li><a href="#home">Home</a></li>
 
@@ -36,7 +58,7 @@
 
           <ol class="chrono">
             <li>
-              <img src="assets/icons/ico64-coins.png">
+              <img src="/assets/icons/ico64-coins.png">
 
               <p>Identify &amp; personify wallets and clusters</p>
             </li>
@@ -74,7 +96,7 @@
 
       <section id="section2">
         <div class="block-image">
-          <img src="assets/blocks/p2.png">
+          <img src="/assets/blocks/p2.png">
         </div>
 
         <article>
@@ -88,7 +110,7 @@
 
       <section id="section3">
         <div class="block-image">
-          <img src="assets/blocks/p3.png">
+          <img src="/assets/blocks/p3.png">
         </div>
 
         <article>
@@ -102,7 +124,7 @@
 
       <section id="section4">
         <div class="block-image">
-          <img src="assets/blocks/p4.png">
+          <img src="/assets/blocks/p4.png">
         </div>
 
         <article>
@@ -115,17 +137,97 @@
       </section>
 
       <section id="section5">
-        <div class="block-image">
-          <img src="assets/blocks/p4.png">
-        </div>
+        <h2>How do I start</h2>
 
-        <article>
-          <h2>Profile Specific Addresses</h2>
+        <p>Signing up is the easiest thing you could do in your life</p>
 
-          <p>Make ontologically matched addresses with augmented data based on pattern recognition. FRST even allows quick recognition of provisioning wallets and more. The FRST team has categorized over 47 modalities of graph ontologies that are useful for advanced traders.</p>
+        <ul class="grid-list">
+          <li>
+            <img src="/assets/icons/ico128-coins.png">
 
-          <button>BUTTON</button>
-        </article>
+            <h3>Collect NDXX Tokens</h3>
+
+            <p>Sign up and purchase NDXX tokens using Ethereum or another cryptocurrency. These tokens will enable you to write queries, view data, and more by burning them into the FRST tool.</p>
+          </li>
+
+          <li>
+            <img src="/assets/icons/ico128-categories.png">
+
+            <h3>Track Specific Categories</h3>
+
+            <p>Each time you stake tokens to write a custom low latency query, a new category tag is created and queryable.</p>
+          </li>
+
+          <li>
+            <img src="/assets/icons/ico128-queries.png">
+
+            <h3>Write Custom Queries</h3>
+
+            <p>Write custom queries in GraphQL, a specialized query language invented by the team at Facebook, it is a favorite of people in finance.</p>
+          </li>
+
+          <li>
+            <img src="/assets/icons/ico128-algorithm.png">
+
+            <h3>Back Test Algorithms</h3>
+
+            <p>The FRST system allows users to backtest their strategies in multiple programming languages.</p>
+          </li>
+
+          <li>
+            <img src="/assets/icons/ico128-monitoring.png">
+
+            <h3>Real Time Implementation &amp; Event Monitoring</h3>
+
+            <p>Backtested strategies can be implemented in real time on the FRST system.</p>
+          </li>
+
+          <li>
+            <img src="/assets/icons/ico128-explore.png">
+
+            <h3>Explore Vast Ontologies</h3>
+
+            <p>Explore different ontological theories concurrently on multiple blockchains.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="section6">
+        <h2>Join Traders from Top Financial Institutions the Rely on FRST</h2>
+
+        <ul class="grid-list">
+          <li>
+            <img src="/assets/icons/ico128-transgraph.png">
+
+            <h3>Visualize the Cryptocurrency Transaction Graph</h3>
+
+            <p>Follow transactions forward and backward through time.</p>
+          </li>
+
+          <li>
+            <img src="/assets/icons/ico128-blockExplorer.png">
+
+            <h3>Block Explorer</h3>
+
+            <p>Explore blocks, transactions, and wallets with contextual details displayed.</p>
+          </li>
+
+          <li>
+            <img src="/assets/icons/ico128-topology.png">
+
+            <h3>Topology Nomenclature</h3>
+
+            <p>Label and cluster specific types of transactions visually.</p>
+          </li>
+
+          <li>
+            <img src="/assets/icons/ico128-categoryPublisher.png">
+
+            <h3>Public Category Publisher</h3>
+
+            <p>Share custome queries, wallet views, and transaction labels with other account holders privately.</p>
+          </li>
+        </ul>
       </section>
     </main>
   </body>

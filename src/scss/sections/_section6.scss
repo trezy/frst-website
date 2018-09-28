@@ -1,4 +1,4 @@
-#section5 {
+#section6 {
   align-items: center;
   background-color: black;
   background-image: radial-gradient(
@@ -23,12 +23,12 @@
   li {
     display: grid;
     grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
+    grid-row-gap: 0.5rem;
     grid-template-areas:
       'image heading'
       'image body';
-    grid-template-columns: 12.8rem auto;
-    grid-template-rows: repeat(2, max-content);
+    grid-template-columns: 10rem auto;
+    grid-template-rows: max-content 1fr;
 
     img {
       grid-area: image;
@@ -36,12 +36,11 @@
 
     h3 {
       grid-area: heading;
+      font-size: 1.2em;
     }
 
     p {
       grid-area: body;
-      font-size: 1.2em;
-      text-align: justify;
     }
   }
 }
