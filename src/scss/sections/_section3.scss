@@ -1,24 +1,20 @@
-#section2 {
+#section3 {
   align-items: center;
   background-color: black;
   background-image: radial-gradient(
     50% 75% at 25% 25%,
     #1d1d1d,
     rgba(#1d1d1d, 0)
-  ),
-  linear-gradient(
-    135deg,
-    #272727 70%,
-    #1d1d1d 70%
   );
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1.1fr 1fr;
 
   article {
-    margin-right: 10rem;
-    order: 2;
+    margin-left: 10rem;
+    order: 1;
   }
 
   .block-image {
-    order: 1;
+    padding: 0 10rem;
+    order: 2;
   }
 }
