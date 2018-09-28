@@ -1,0 +1,35 @@
+[role=banner] {
+  // box-shadow: 0 -1rem 5rem 0 $black;
+  display: flex;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 2;
+
+  ul, li {
+    align-items: stretch;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  ul {
+    width: 100%;
+  }
+
+  a {
+    &, &:active {
+      align-items: center;
+      color: $white;
+      display: flex;
+      padding: 1rem 2rem;
+      text-decoration: none;
+    }
+
+    &:focus,
+    &:hover {
+      background-color: $dark-blue;
+    }
+  }
+}
