@@ -1,3 +1,26 @@
 button, .button {
+  background-color: #00c9ff;
+  background-image: none;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem 0 rgba($black, 0.3);
+  color: white;
+  font-family: inherit;
+  font-size: 1.2em;
+  font-weight: bold;
+  min-width: 20rem;
+  overflow: hidden;
+  padding: 1.5rem;
+  position: relative;
+  text-transform: uppercase;
 
+  &:after {
+    background-color: rgba($black, 0.2);
+    bottom: 0;
+    content: '';
+    min-height: 0.3rem;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
 }
