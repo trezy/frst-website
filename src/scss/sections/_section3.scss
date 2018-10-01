@@ -2,9 +2,15 @@
   align-items: center;
   background-color: black;
   background-image: radial-gradient(
-    50% 75% at 25% 25%,
-    #1d1d1d,
-    rgba(#1d1d1d, 0)
+    circle closest-corner at 70% 50%,
+    #a82798,
+    rgba(#a82798, 0)
+  ),
+  linear-gradient(
+    135deg,
+    #4311bd 70%,
+    #7d168e 70%,
+    #8518a4
   );
   grid-template-columns: 1.1fr 1fr;
 
