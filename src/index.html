@@ -240,10 +240,20 @@
           placeholder="Email"
           type="email">
 
+        <div
+          class="alert error"
+          hidden></div>
+
         <button type="submit">
           Start Your Free Trial
         </button>
       </form>
+    </dialog>
+
+    <dialog id="signup-processing">
+      <header>
+        <h2><i class="fas fa-fw fa-spinner fa-pulse"></i></h2>
+      </header>
     </dialog>
 
     <dialog id="signup-success">
@@ -254,7 +264,7 @@
       </button>
 
       <header>
-        <h2><span alt="Check Mark Emoji" role="img">✓</span> Success!</h2>
+        <h2><i class="fas fa-check fa-fw"></i> Success!</h2>
       </header>
     </dialog>
 

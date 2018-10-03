@@ -1,0 +1,13 @@
+.alert {
+  border-radius: 0.2rem;
+  border-style: solid;
+  border-width: 0.1rem;
+  display: block;
+  padding: 1rem;
+
+  &.error {
+    background-color: rgba($red, 0.5);
+    border-color: rgba($red, 0.8);
+    color: $white;
+  }
+}

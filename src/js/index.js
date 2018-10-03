@@ -3,6 +3,7 @@ window.frst = {
   allSectionsHaveBeenAnimated: false,
   banner: document.querySelector('[role=banner]'),
   bannerIsTransparent: true,
+  processingDialog: document.querySelector('dialog#signup-processing'),
   signupDialog: document.querySelector('dialog#signup'),
   successDialog: document.querySelector('dialog#signup-success'),
   sections: {},
@@ -28,9 +29,14 @@ for (const section of Array.from(document.querySelectorAll('section'))) {
 
 // Add close handlers for each dialog
 for (const dialog of Array.from(document.querySelectorAll('dialog'))) {
-  dialog.querySelector('button.close').addEventListener('click', () => {
-    dialog.close()
-  })
+  const button = dialog.querySelector('button.close')
+
+  if (button) {
+    button.addEventListener('click', () => {
+      dialog.querySelector('.error.alert').setAttribute('hidden', true)
+      dialog.close()
+    })
+  }
 }
 
 
@@ -54,6 +60,11 @@ for (const button of Array.from(document.querySelectorAll('.beta-signup'))) {
 
 // Handle submission of the beta signup form
 window.frst.signupDialog.querySelector('form').addEventListener('submit', async event => {
+  const {
+    processingDialog,
+    signupDialog,
+    successDialog,
+  } = window.frst
   const { target } = event
   const inputs = Array.from(target.querySelectorAll('input'))
   const mergeFieldKeys = ['FNAME', 'LNAME']
@@ -64,6 +75,8 @@ window.frst.signupDialog.querySelector('form').addEventListener('submit', async 
 
   event.preventDefault()
 
+  processingDialog.showModal()
+
   for (const input of inputs) {
     if (mergeFieldKeys.includes(input.name)) {
       data.merge_fields[input.name] = input.value
@@ -72,7 +85,7 @@ window.frst.signupDialog.querySelector('form').addEventListener('submit', async 
     }
   }
 
-  await fetch('https://us-central1-frst-website.cloudfunctions.net/addSubscriber', {
+  const response = await fetch('https://us-central1-frst-website.cloudfunctions.net/addSubscriber', {
     body: JSON.stringify(data),
     headers: {
       'Content-Type': 'application/json',
@@ -80,10 +93,35 @@ window.frst.signupDialog.querySelector('form').addEventListener('submit', async 
     method: 'post',
   })
 
-  window.frst.successDialog.showModal()
-  window.frst.signupDialog.close()
+  const errorMessage = signupDialog.querySelector('.error.alert')
 
-  setTimeout(() => window.frst.successDialog.close(), 2000)
+  if (response.ok) {
+    successDialog.showModal()
+    signupDialog.close()
+  } else {
+    const responseJSON = await response.json()
+
+    switch (responseJSON.title) {
+      case 'Member Exists':
+        errorMessage.innerHTML = 'It looks like you\'re already signed up!'
+        break
+
+      case 'Forgotten Email Not Subscribed':
+        errorMessage.innerHTML = 'Oh no! It looks like you were subscribed, but you were then permanently removed from the list. To get subscribed again, shoot us an email at <a href="mailto:hello@frst.io">hello@frst.io</a>.'
+        break
+
+      default:
+        errorMessage.innerHTML = responseJSON.title
+    }
+
+    errorMessage.setAttribute('hidden', false)
+
+    setTimeout(() => errorMessage.setAttribute('hidden', true), 5000)
+  }
+
+  processingDialog.close()
+
+  setTimeout(() => successDialog.close(), 5000)
 })
 
 

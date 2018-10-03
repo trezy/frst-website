@@ -33,6 +33,7 @@
 @import './core/dialog';
 @import './core/form';
 @import './core/headings';
+@import './core/hidden';
 @import './core/img';
 @import './core/input';
 @import './core/section';
@@ -44,6 +45,7 @@
 
 // Components
 
+@import './components/alert';
 @import './components/banner';
 @import './components/block-image';
 @import './components/grid-list';
