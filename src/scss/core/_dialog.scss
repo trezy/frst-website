@@ -1,0 +1,49 @@
+dialog {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem 0 $black;
+  left: 50%;
+  margin: 0;
+  overflow: hidden;
+  padding: 4rem;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  &::backdrop {
+    background: rgba($black, 0.8);
+  }
+
+  .close {
+    background-color: transparent;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    box-shadow: none;
+    color: $black;
+    min-width: initial;
+    padding: 1rem 2rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition-duration: 0.2s;
+    transition-property: background-color, color;
+
+    &:after {
+      display: none;
+    }
+
+    &:hover {
+      background-color: $red;
+      color: $white;
+    }
+  }
+
+  p {
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    min-width: 100vw;
+  }
+}

@@ -31,7 +31,7 @@
 
             <p><strong>We help advanced cryptocurrency traders achieve unprecedented analysis capabilities.</strong></p>
 
-            <button>
+            <button class="beta-signup">
               SIGN UP FOR THE BETA!
             </button>
           </div>
@@ -210,6 +210,53 @@
         </ul>
       </section>
     </main>
+
+    <dialog id="signup">
+      <button
+        class="close"
+        type="button">
+        &times;
+      </button>
+
+      <header>
+        <h2>Beta Signup</h2>
+      </header>
+
+      <p>Get started today, no downloads or credit card required.</p>
+
+      <form>
+        <input
+          name="FNAME"
+          placeholder="First Name"
+          type="text">
+
+        <input
+          name="LNAME"
+          placeholder="Last Name"
+          type="text">
+
+        <input
+          name="email_address"
+          placeholder="Email"
+          type="email">
+
+        <button type="submit">
+          Start Your Free Trial
+        </button>
+      </form>
+    </dialog>
+
+    <dialog id="signup-success">
+      <button
+        class="close"
+        type="button">
+        &times;
+      </button>
+
+      <header>
+        <h2><span alt="Check Mark Emoji" role="img">✓</span> Success!</h2>
+      </header>
+    </dialog>
 
     <script src="/js/index.js"></script>
   </body>

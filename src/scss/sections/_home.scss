@@ -1,9 +1,9 @@
 #home {
-  background-color: #8b09b2;
+  background-color: $grey;
   background-image: radial-gradient(
     circle farthest-side at 75% 75%,
-    #e43070,
-    #8b09b2
+    $dark-grey,
+    $grey
   );
   grid-template-columns: repeat(2, 1fr);
 

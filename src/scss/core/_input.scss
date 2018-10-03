@@ -1,0 +1,17 @@
+input {
+  background-color: $lightest-grey;
+  border: none;
+  border-color: $light-grey;
+  border-radius: 0.2rem;
+  border-style: solid;
+  border-width: 0.1rem;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  padding: 0.5rem;
+
+  &:focus {
+    outline: none;
+  }
+}

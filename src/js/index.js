@@ -1,10 +1,18 @@
+// Create the config object
 window.frst = {
   allSectionsHaveBeenAnimated: false,
   banner: document.querySelector('[role=banner]'),
   bannerIsTransparent: true,
+  signupDialog: document.querySelector('dialog#signup'),
+  successDialog: document.querySelector('dialog#signup-success'),
   sections: {},
 }
 
+
+
+
+
+// Create the animation tracking object for each section
 for (const section of Array.from(document.querySelectorAll('section'))) {
   section.setAttribute('data-visible', false)
 
@@ -14,6 +22,75 @@ for (const section of Array.from(document.querySelectorAll('section'))) {
   }
 }
 
+
+
+
+
+// Add close handlers for each dialog
+for (const dialog of Array.from(document.querySelectorAll('dialog'))) {
+  dialog.querySelector('button.close').addEventListener('click', () => {
+    dialog.close()
+  })
+}
+
+
+
+
+
+// Add listeners for beta signup buttons
+for (const button of Array.from(document.querySelectorAll('.beta-signup'))) {
+  button.addEventListener('click', () => {
+    const { signupDialog } = window.frst
+
+    if (!signupDialog.open) {
+      signupDialog.showModal()
+    }
+  })
+}
+
+
+
+
+
+// Handle submission of the beta signup form
+window.frst.signupDialog.querySelector('form').addEventListener('submit', async event => {
+  const { target } = event
+  const inputs = Array.from(target.querySelectorAll('input'))
+  const mergeFieldKeys = ['FNAME', 'LNAME']
+  const data = {
+    merge_fields: {},
+    status: 'subscribed',
+  }
+
+  event.preventDefault()
+
+  for (const input of inputs) {
+    if (mergeFieldKeys.includes(input.name)) {
+      data.merge_fields[input.name] = input.value
+    } else {
+      data[input.name] = input.value
+    }
+  }
+
+  await fetch('https://us-central1-frst-website.cloudfunctions.net/addSubscriber', {
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'post',
+  })
+
+  window.frst.successDialog.showModal()
+  window.frst.signupDialog.close()
+
+  setTimeout(() => window.frst.successDialog.close(), 2000)
+})
+
+
+
+
+
+// Add a scroll listener to handle section animations
 document.addEventListener('scroll', () => {
   const {
     innerHeight,
