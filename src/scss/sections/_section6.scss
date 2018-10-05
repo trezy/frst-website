@@ -68,4 +68,12 @@
       transform: translateX(0);
     }
   }
+
+  @media (max-width: 1000px) {
+    padding: 4rem;
+
+    li {
+      grid-template-columns: 1fr 4fr;
+    }
+  }
 }
