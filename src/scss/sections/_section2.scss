@@ -50,4 +50,17 @@
       opacity: 1;
     }
   }
+
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    padding: 4rem;
+
+    article {
+      margin-right: 0;
+    }
+
+    .block-image {
+      display: none;
+    }
+  }
 }

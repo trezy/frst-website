@@ -54,4 +54,18 @@
       opacity: 1;
     }
   }
+
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+    padding: 4rem;
+
+    article {
+      margin-left: 0;
+    }
+
+    .block-image {
+      display: none;
+    }
+  }
 }

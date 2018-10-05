@@ -1,5 +1,7 @@
 section {
   display: grid;
   min-height: 100vh;
+  overflow: hidden;
   padding: 0 calc(50vw - 70rem);
+  position: relative;
 }

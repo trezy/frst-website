@@ -122,4 +122,49 @@
     animation-name: fadeIn;
     opacity: 0;
   }
+
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+
+    > * {
+      z-index: 2;
+    }
+
+    .pitch {
+      padding: 4rem 4rem 0;
+    }
+
+    .chrono {
+      img {
+        margin-right: 0.5rem;
+      }
+
+      > * {
+        &:after,
+        &:before {
+          width: 1rem;
+        }
+      }
+
+      > :nth-child(odd) {
+        grid-template-columns: min-content 1fr 3fr;
+
+        &:before {
+          margin-right: 0.5rem;
+        }
+      }
+
+      > :nth-child(even) {
+        grid-template-columns: 1fr 3fr min-content;
+
+        &:after {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+
+    .block-image {
+      display: none;
+    }
+  }
 }
