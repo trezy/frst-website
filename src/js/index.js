@@ -27,13 +27,22 @@ for (const section of Array.from(document.querySelectorAll('section'))) {
 
 
 
-// Add close handlers for each dialog
+// Setup <dialog /> elements
 for (const dialog of Array.from(document.querySelectorAll('dialog'))) {
   const button = dialog.querySelector('button.close')
 
+  // Register dialog with the polyfill so it works in lame browsers that don't support <dialog />
+  dialogPolyfill.registerDialog(dialog)
+
+  // Add close handlers for each dialog
   if (button) {
     button.addEventListener('click', () => {
-      dialog.querySelector('.error.alert').setAttribute('hidden', true)
+      const errorAlert = dialog.querySelector('.error.alert')
+
+      if (errorAlert) {
+        errorAlert.setAttribute('hidden', true)
+      }
+
       dialog.close()
     })
   }
