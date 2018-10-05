@@ -1,0 +1,36 @@
+.brand {
+  // align-items: center;
+  display: grid;
+  grid-column-gap: 3rem;
+  grid-row-gap: 2rem;
+  grid-template-areas:
+  'logotype thundr'
+  'tagline thundr';
+  grid-template-columns: 2fr 1fr;
+
+  .logotype {
+    // background-image: url(/assets/logotype.svg);
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: contain;
+    grid-area: logotype;
+    margin-top: 3rem;
+    // width: 100%;
+  }
+
+  .tagline {
+    align-self: end;
+    grid-area: tagline;
+    text-align: left;
+  }
+
+  .thundr {
+    // background-image: url(/assets/thundr.svg);
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: contain;
+    grid-area: thundr;
+    // height: 100%;
+    // width: 100%;
+  }
+}
